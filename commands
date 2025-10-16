@@ -1,0 +1,22 @@
+python3 u_random_baseline.py \
+  --config ./configs/spelunky.json \
+  --out SpelunkyRand01.txt \
+
+  
+python3 solvability.py \
+  --level-file SpelunkyRand01.txt \
+  --config ./configs/spelunky.json \
+  --show-path
+  
+  python3 constructive.py \
+  --config ./configs/spelunky.json \
+  --out ./levels/constructive_spelunky_w48h36.txt \
+  --width 43 --height 32 \
+  --step-vertical 2 --step-length 6 --step-overlap 2 \
+  --check
+  
+  
+cd ~/Downloads/Spelunky/spelunky-psp/build
+make -j$(nproc)
+./Spelunky_PSP --custom-level=../assets/filesystem/levels/test.txt
+
