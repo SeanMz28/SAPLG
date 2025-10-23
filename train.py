@@ -96,7 +96,7 @@ def train_gan(
     device='cuda',
     lr_g=0.0002,
     lr_d=0.0001,
-    style_loss_weight=0.1,
+    style_loss_weight=0.01,
     checkpoint_dir='checkpoints',
     save_interval=50
 ):
@@ -157,6 +157,8 @@ def train_gan(
             g_loss_style = mse_loss(fake_style_pred, style_vectors)
             g_loss = g_loss_adv + style_loss_weight * g_loss_style
             g_loss.backward()
+            torch.nn.utils.clip_grad_norm_(generator.parameters(), max_norm=1.0)
+
             opt_g.step()
             
             # Record metrics

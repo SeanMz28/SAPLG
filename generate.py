@@ -1,7 +1,3 @@
-# generate.py
-"""
-Generate new Spelunky levels using the trained generator.
-"""
 
 import torch
 import numpy as np
@@ -143,7 +139,6 @@ def main():
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    # Load real style vectors from your dataset
     print(f"📊 Loading style vectors from {args.metrics_file}")
     style_vectors = load_real_style_vectors(args.metrics_file, args.num_styles)
     
