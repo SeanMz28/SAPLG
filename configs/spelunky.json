@@ -6,6 +6,7 @@
   "empty": ".",
   "platform": "1",
   "ground": "1",
+  "ladder": "L",
   "start": "D",
   "goal": "E"
 },

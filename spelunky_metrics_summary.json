@@ -1,0 +1,141 @@
+{
+  "dataset_size": 528,
+  "metric_statistics": {
+    "room_count": {
+      "count": 528.0,
+      "mean": 4.172348484848484,
+      "std": 1.608396073006812,
+      "min": 1.0,
+      "25%": 3.0,
+      "50%": 4.0,
+      "75%": 5.0,
+      "max": 9.0
+    },
+    "branching": {
+      "count": 528.0,
+      "mean": 2.174466041553568,
+      "std": 0.14647532315665718,
+      "min": 1.7959183673469388,
+      "25%": 2.0727272727272728,
+      "50%": 2.1692528049653856,
+      "75%": 2.2671641791044777,
+      "max": 2.6666666666666665
+    },
+    "linearity": {
+      "count": 528.0,
+      "mean": 0.287857055688351,
+      "std": 0.06383107095529503,
+      "min": 0.15714285714285714,
+      "25%": 0.2391012743125419,
+      "50%": 0.2807017543859649,
+      "75%": 0.3273510971786834,
+      "max": 0.5357142857142857
+    },
+    "dead_end_rate": {
+      "count": 528.0,
+      "mean": 0.22765389657892993,
+      "std": 0.05939477700495362,
+      "min": 0.07142857142857142,
+      "25%": 0.18461538461538463,
+      "50%": 0.2222222222222222,
+      "75%": 0.2631578947368421,
+      "max": 0.46
+    },
+    "loop_complexity": {
+      "count": 528.0,
+      "mean": 9.589015151515152,
+      "std": 3.8912679669565082,
+      "min": 0.0,
+      "25%": 7.0,
+      "50%": 9.0,
+      "75%": 12.0,
+      "max": 24.0
+    },
+    "segment_size_variance": {
+      "count": 528.0,
+      "mean": 3.950600439806164,
+      "std": 1.195469551733699,
+      "min": 1.5681632653061222,
+      "25%": 3.1141198474038845,
+      "50%": 3.779095515647973,
+      "75%": 4.6554865013774105,
+      "max": 9.75436710561677
+    }
+  },
+  "metric_correlations": {
+    "room_count": {
+      "room_count": 1.0,
+      "branching": -0.6158289286593188,
+      "linearity": -0.14640904411470593,
+      "dead_end_rate": 0.26347878854046203,
+      "loop_complexity": -0.28638703762888634,
+      "segment_size_variance": -0.09451365757879426
+    },
+    "branching": {
+      "room_count": -0.6158289286593188,
+      "branching": 1.0,
+      "linearity": -0.15393670283894806,
+      "dead_end_rate": -0.5136613662125549,
+      "loop_complexity": 0.9191107893770276,
+      "segment_size_variance": 0.2605063276338637
+    },
+    "linearity": {
+      "room_count": -0.14640904411470593,
+      "branching": -0.15393670283894806,
+      "linearity": 1.0,
+      "dead_end_rate": -0.11116536873150812,
+      "loop_complexity": -0.26914699698979305,
+      "segment_size_variance": -0.08100333352705526
+    },
+    "dead_end_rate": {
+      "room_count": 0.26347878854046203,
+      "branching": -0.5136613662125549,
+      "linearity": -0.11116536873150812,
+      "dead_end_rate": 1.0,
+      "loop_complexity": -0.5138595485509677,
+      "segment_size_variance": 0.09689573456083878
+    },
+    "loop_complexity": {
+      "room_count": -0.28638703762888634,
+      "branching": 0.9191107893770276,
+      "linearity": -0.26914699698979305,
+      "dead_end_rate": -0.5138595485509677,
+      "loop_complexity": 1.0,
+      "segment_size_variance": 0.24532849678078392
+    },
+    "segment_size_variance": {
+      "room_count": -0.09451365757879426,
+      "branching": 0.2605063276338637,
+      "linearity": -0.08100333352705526,
+      "dead_end_rate": 0.09689573456083878,
+      "loop_complexity": 0.24532849678078392,
+      "segment_size_variance": 1.0
+    }
+  },
+  "sample_targets": {
+    "high_branching": {
+      "room_count": 2.0,
+      "branching": 2.6666666666666665,
+      "linearity": 0.18181818181818182,
+      "dead_end_rate": 0.15151515151515152,
+      "loop_complexity": 24.0,
+      "segment_size_variance": 7.756657483930209
+    },
+    "high_linearity": {
+      "room_count": 4.0,
+      "branching": 2.0714285714285716,
+      "linearity": 0.5357142857142857,
+      "dead_end_rate": 0.17857142857142858,
+      "loop_complexity": 6.0,
+      "segment_size_variance": 3.177295918367347
+    },
+    "balanced": {
+      "room_count": 4.0,
+      "branching": 2.1692528049653856,
+      "linearity": 0.2807017543859649,
+      "dead_end_rate": 0.2222222222222222,
+      "loop_complexity": 9.0,
+      "segment_size_variance": 3.779095515647973
+    }
+  }
+}
