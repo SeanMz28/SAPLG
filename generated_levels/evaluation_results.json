@@ -1,0 +1,137 @@
+{
+  "generated_style2_sample0": {
+    "success": true,
+    "room_count": 7.0,
+    "branching": 2.1363636363636362,
+    "linearity": 0.3068181818181818,
+    "dead_end_rate": 0.29545454545454547,
+    "loop_complexity": 13.0,
+    "segment_size_variance": 3.3904958677685952
+  },
+  "generated_style0_sample1": {
+    "success": true,
+    "room_count": 15.0,
+    "branching": 1.8979591836734695,
+    "linearity": 0.21428571428571427,
+    "dead_end_rate": 0.24489795918367346,
+    "loop_complexity": 10.0,
+    "segment_size_variance": 1.9143065389421074
+  },
+  "generated_style4_sample0": {
+    "success": true,
+    "room_count": 7.0,
+    "branching": 2.21978021978022,
+    "linearity": 0.25274725274725274,
+    "dead_end_rate": 0.25274725274725274,
+    "loop_complexity": 17.0,
+    "segment_size_variance": 3.30974519985509
+  },
+  "generated_style4_sample2": {
+    "success": true,
+    "room_count": 7.0,
+    "branching": 2.2444444444444445,
+    "linearity": 0.25555555555555554,
+    "dead_end_rate": 0.24444444444444444,
+    "loop_complexity": 18.0,
+    "segment_size_variance": 3.338888888888889
+  },
+  "generated_style4_sample1": {
+    "success": true,
+    "room_count": 9.0,
+    "branching": 2.1702127659574466,
+    "linearity": 0.23404255319148937,
+    "dead_end_rate": 0.2553191489361702,
+    "loop_complexity": 17.0,
+    "segment_size_variance": 3.2251018560434574
+  },
+  "generated_style3_sample0": {
+    "success": true,
+    "room_count": 16.0,
+    "branching": 1.8958333333333333,
+    "linearity": 0.17708333333333334,
+    "dead_end_rate": 0.25,
+    "loop_complexity": 11.0,
+    "segment_size_variance": 1.8524305555555554
+  },
+  "generated_style2_sample2": {
+    "success": true,
+    "room_count": 8.0,
+    "branching": 2.1379310344827585,
+    "linearity": 0.25287356321839083,
+    "dead_end_rate": 0.2988505747126437,
+    "loop_complexity": 14.0,
+    "segment_size_variance": 3.696657418417227
+  },
+  "generated_style1_sample0": {
+    "success": true,
+    "room_count": 8.0,
+    "branching": 2.111111111111111,
+    "linearity": 0.3,
+    "dead_end_rate": 0.3,
+    "loop_complexity": 13.0,
+    "segment_size_variance": 3.3535802469135807
+  },
+  "generated_style1_sample2": {
+    "success": true,
+    "room_count": 8.0,
+    "branching": 2.1123595505617976,
+    "linearity": 0.25842696629213485,
+    "dead_end_rate": 0.3146067415730337,
+    "loop_complexity": 13.0,
+    "segment_size_variance": 3.6222699154147207
+  },
+  "generated_style0_sample0": {
+    "success": true,
+    "room_count": 15.0,
+    "branching": 1.8494623655913978,
+    "linearity": 0.22580645161290322,
+    "dead_end_rate": 0.26881720430107525,
+    "loop_complexity": 8.0,
+    "segment_size_variance": 2.012718233321771
+  },
+  "generated_style1_sample1": {
+    "success": true,
+    "room_count": 8.0,
+    "branching": 2.1839080459770117,
+    "linearity": 0.22988505747126436,
+    "dead_end_rate": 0.2988505747126437,
+    "loop_complexity": 16.0,
+    "segment_size_variance": 3.701942132382085
+  },
+  "generated_style2_sample1": {
+    "success": true,
+    "room_count": 7.0,
+    "branching": 2.1333333333333333,
+    "linearity": 0.3,
+    "dead_end_rate": 0.3111111111111111,
+    "loop_complexity": 13.0,
+    "segment_size_variance": 3.361111111111111
+  },
+  "generated_style0_sample2": {
+    "success": true,
+    "room_count": 16.0,
+    "branching": 1.875,
+    "linearity": 0.19791666666666666,
+    "dead_end_rate": 0.25,
+    "loop_complexity": 10.0,
+    "segment_size_variance": 1.8792317708333333
+  },
+  "generated_style3_sample2": {
+    "success": true,
+    "room_count": 15.0,
+    "branching": 1.875,
+    "linearity": 0.19791666666666666,
+    "dead_end_rate": 0.2708333333333333,
+    "loop_complexity": 9.0,
+    "segment_size_variance": 1.8524305555555554
+  },
+  "generated_style3_sample1": {
+    "success": true,
+    "room_count": 15.0,
+    "branching": 1.936842105263158,
+    "linearity": 0.2,
+    "dead_end_rate": 0.24210526315789474,
+    "loop_complexity": 12.0,
+    "segment_size_variance": 1.7679778393351802
+  }
+}

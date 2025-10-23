@@ -219,4 +219,4 @@ if __name__ == "__main__":
     print(f"✅ Real/fake scores shape: {real_fake_scores.shape}")   # (4, 1)
     print(f"✅ Style predictions shape: {style_pred.shape}")        # (4, 6)
     
-    print(f"\n✨ Model test completed successfully!"}
+    print(f"\n✨ Model test completed successfully!")
