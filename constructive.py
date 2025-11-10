@@ -5,10 +5,9 @@ import numpy as np
 
 # Optional: A* for solvability check (only used when --check is passed)
 try:
-    # must support: findPaths(subOptimal, solids, jumps, level_rows, start=None, goal_xy=None)
-    from test_level import findPaths
+    from solvability import is_level_solvable
 except Exception:
-    findPaths = None
+    is_level_solvable = None
 
 # --------------------------- Config / IO ---------------------------
 
@@ -95,29 +94,37 @@ def place_start_goal(grid: np.ndarray, tiles: Dict[str, str],
 
 def astar_ok(grid: np.ndarray, cfg: Dict, start_xy: Tuple[int,int], goal_xy: Tuple[int,int], sub_optimal: int = 0):
     """
-    Run A* (if available) using physics from cfg.
-    Scrubs start/goal to empty during search so they’re traversable.
+    Run A* solvability check using the Spelunky-specific solvability checker from solvability.py.
+    Uses the config's tiles, physics, and jump definitions with ladder support.
+    
+    Uses a timeout to prevent hanging on difficult levels.
     """
-    if findPaths is None:
-        return True, {"note": "pathfinder not available, skipped"}
+    if is_level_solvable is None:
+        return True, {"note": "solvability checker not available, skipped"}
 
-    tiles = cfg["tiles"]
-    physics = cfg.get("physics", {})
-    solids = set(physics.get("solids", []))
-    jumps = physics.get("jumps", [])
-
-    # Ensure start/goal aren't treated as solid
-    solids.discard(tiles["start"])
-    solids.discard(tiles["goal"])
-
-    # Scrub D/E to empty for search
-    table = str.maketrans({tiles["start"]: tiles["empty"], tiles["goal"]: tiles["empty"]})
-    level_rows_search = [row.translate(table) for row in to_lines(grid)]
-
-    paths = findPaths(sub_optimal, solids, jumps, level_rows_search, start_xy, goal_xy)
-    if not paths:
-        return False, {"num_paths": 0}
-    return True, {"num_paths": len(paths), "best_length": len(paths[0])}
+    # Convert grid to level_rows format expected by solvability checker
+    level_rows = to_lines(grid)
+    
+    # Use the is_level_solvable function from solvability.py with timeout
+    import signal
+    
+    def timeout_handler(signum, frame):
+        raise TimeoutError("Solvability check timed out")
+    
+    # Set a timeout of 10 seconds for the solvability check
+    signal.signal(signal.SIGALRM, timeout_handler)
+    signal.alarm(10)
+    
+    try:
+        solvable, info = is_level_solvable(level_rows, cfg, sub_optimal=sub_optimal, return_paths=False)
+        signal.alarm(0)  # Cancel the alarm
+        return solvable, info
+    except TimeoutError:
+        signal.alarm(0)  # Cancel the alarm
+        return False, {"note": "solvability check timed out after 10 seconds", "timeout": True}
+    except Exception as e:
+        signal.alarm(0)  # Cancel the alarm
+        return False, {"error": str(e)}
 
 # --------------------------- Generator orchestration ---------------------------
 
@@ -166,8 +173,8 @@ def main():
     ap.add_argument("--height", type=int)
     ap.add_argument("--ground-rows", type=int, default=1)
     ap.add_argument("--wall-thickness", type=int, default=1)
-    ap.add_argument("--step-length", type=int, default=4)
-    ap.add_argument("--step-vertical", type=int, default=3)
+    ap.add_argument("--step-length", type=int, default=6)
+    ap.add_argument("--step-vertical", type=int, default=2)
     ap.add_argument("--step-overlap", type=int, default=1)
     ap.add_argument("--margin-left", type=int, default=2)
     ap.add_argument("--margin-right", type=int, default=2)

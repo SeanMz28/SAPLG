@@ -19,6 +19,7 @@ def visualize_levels(generated_dir='generated_levels', real_dir='captured_levels
     
     tile_colors = {
         '0': [1, 1, 1],      # White (air)
+        '.': [1, 1, 1],      # White (air)
         '1': [0.3, 0.3, 0.3], # Dark gray (solid)
         'D': [0, 1, 0],      # Green (door)
         'E': [1, 0, 0],      # Red (exit)

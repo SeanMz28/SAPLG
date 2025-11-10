@@ -76,7 +76,7 @@ def train_gan(
     device='cuda',
     lr_g=0.0002,
     lr_d=0.0001,
-    style_loss_weight=0.01,  # 👈 Lowered from 0.1
+    style_loss_weight=0.05,
     checkpoint_dir='checkpoints',
     save_interval=50
 ):
