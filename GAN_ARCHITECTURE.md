@@ -21,10 +21,10 @@
 
 This project uses a **Style-Aware Generative Adversarial Network (GAN)** to generate Spelunky-style platformer levels. Unlike search-based procedural content generation (PCG) methods, this approach:
 
-- ✅ **Generates levels in a single forward pass** (~milliseconds)
-- ✅ **Learns implicit patterns from real Spelunky levels** (528 training samples)
-- ✅ **Conditions generation on 6D style vectors** for controllable output
-- ✅ **Uses graph-based feature extraction** to capture level structure
+-  **Generates levels in a single forward pass** (~milliseconds)
+-  **Learns implicit patterns from real Spelunky levels** (528 training samples)
+-  **Conditions generation on 6D style vectors** for controllable output
+-  **Uses graph-based feature extraction** to capture level structure
 
 ### Method Classification
 
@@ -249,7 +249,7 @@ dead_end_rate = 0.33 (2 of 6 rooms):
 
 ---
 
-### Metric 5: `loop_complexity` 🔄
+### Metric 5: `loop_complexity` 
 
 **What it measures:** Number of cycles/loops in the level graph
 

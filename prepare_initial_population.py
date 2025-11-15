@@ -36,7 +36,7 @@ def prepare_all_levels(
     """
     
     print("=" * 60)
-    print("🎮 PREPARING INITIAL POPULATION FOR FI-2POP")
+    print("PREPARING INITIAL POPULATION FOR FI-2POP")
     print("=" * 60)
     print(f"Target: {num_random} random + {num_constructive} constructive")
     print(f"Dimensions: {width}x{height}")
@@ -84,18 +84,18 @@ def prepare_all_levels(
     
     # Summary
     print("\n" + "=" * 60)
-    print("📊 GENERATION COMPLETE")
+    print("GENERATION COMPLETE")
     print("=" * 60)
     print(f"Random levels:        {random_count}/{num_random} (solvable)")
     print(f"Constructive levels:  {constructive_count}/{num_constructive} (verified solvable)")
     print(f"Total generated:      {random_count + constructive_count}")
     print()
-    print("📁 Level libraries:")
+    print("Level libraries:")
     print("   - random_levels/")
     print("   - constructive_levels/")
     print("   - captured_levels/ (existing)")
     print()
-    print("✅ Ready to run FI-2POP!")
+    print("Ready to run FI-2POP!")
     print("   All levels are verified solvable!")
 
 

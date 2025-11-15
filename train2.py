@@ -29,7 +29,7 @@ class SpelunkyDataset(Dataset):
             if f.stem in self.metrics
         ]
         
-        print(f"📁 Loaded {len(self.level_files)} valid levels")
+        print(f"Loaded {len(self.level_files)} valid levels")
     
     def __len__(self):
         return len(self.level_files)
@@ -96,9 +96,9 @@ def train_gan(
         'g_loss_adv': [], 'g_loss_style': []
     }
     
-    print(f"\n🚀 Starting IMPROVED training for {num_epochs} epochs")
-    print(f"📊 Dataset size: {len(dataloader.dataset)}")
-    print(f"✨ Improvements: Gradient clipping + Label smoothing + Lower style weight")
+    print(f"\nStarting IMPROVED training for {num_epochs} epochs")
+    print(f"Dataset size: {len(dataloader.dataset)}")
+    print(f"Improvements: Gradient clipping + Label smoothing + Lower style weight")
     
     for epoch in range(num_epochs):
         epoch_metrics = {k: [] for k in history.keys()}

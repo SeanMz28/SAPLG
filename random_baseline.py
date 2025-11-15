@@ -324,10 +324,10 @@ if __name__ == "__main__":
                 timeout=args.timeout,
                 verbose=True
             )
-            print(f"✅ Generated solvable level: best_length={info['best_length']}, paths={info['num_paths']}")
+            print(f"[OK] Generated solvable level: best_length={info['best_length']}, paths={info['num_paths']}")
         except RuntimeError as e:
-            print(f"❌ Failed: {e}")
-            print(f"💡 Try: Lower platform-density, increase ladder-probability, or increase max-attempts/timeout")
+            print(f"[FAIL] Failed: {e}")
+            print(f" Try: Lower platform-density, increase ladder-probability, or increase max-attempts/timeout")
             exit(1)
     else:
         grid = generate_random_level(cfg)

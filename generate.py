@@ -40,7 +40,7 @@ def generate_levels(
     generator.load_state_dict(checkpoint['generator'])
     generator.eval()
     
-    print(f"✅ Loaded model from epoch {checkpoint['epoch']}")
+    print(f"[OK] Loaded model from epoch {checkpoint['epoch']}")
     
     # Tile mapping (reverse of tile_to_idx)
     idx_to_tile = {0: '0', 1: '1', 2: 'D', 3: 'E', 4: 'L'}
@@ -53,7 +53,7 @@ def generate_levels(
     generated_count = 0
     
     for style_idx, style_vector in enumerate(style_vectors):
-        print(f"\n🎨 Style {style_idx + 1}/{len(style_vectors)}: {style_vector}")
+        print(f"\n Style {style_idx + 1}/{len(style_vectors)}: {style_vector}")
         
         # Convert to tensor
         style_tensor = torch.tensor([style_vector], dtype=torch.float32).to(device)
@@ -75,9 +75,9 @@ def generate_levels(
                     f.write('\n'.join(level_text))
                 
                 generated_count += 1
-                print(f"  ✅ Generated: {filename.name}")
+                print(f"  [OK] Generated: {filename.name}")
     
-    print(f"\n🎉 Generated {generated_count} levels in {output_dir}/")
+    print(f"\n Generated {generated_count} levels in {output_dir}/")
     return output_path
 
 
@@ -139,7 +139,7 @@ def main():
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    print(f"📊 Loading style vectors from {args.metrics_file}")
+    print(f"[STATS] Loading style vectors from {args.metrics_file}")
     style_vectors = load_real_style_vectors(args.metrics_file, args.num_styles)
     
     # Generate levels

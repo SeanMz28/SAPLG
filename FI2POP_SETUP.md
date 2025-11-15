@@ -82,10 +82,10 @@ SAPLG/
 
 ## Workflow Benefits
 
-✅ **Fast iterations** - Pre-generate once, reuse many times  
-✅ **Reproducibility** - Same starting population across runs  
-✅ **Debugging** - Can inspect initial population levels  
-✅ **Flexibility** - Generate large libraries offline, sample during evolution  
+ **Fast iterations** - Pre-generate once, reuse many times  
+ **Reproducibility** - Same starting population across runs  
+ **Debugging** - Can inspect initial population levels  
+ **Flexibility** - Generate large libraries offline, sample during evolution  
 
 ## Advanced Usage
 
@@ -157,8 +157,8 @@ Run: python prepare_initial_population.py
 
 ## Next Steps
 
-1. ✅ Prepare libraries: `python prepare_initial_population.py`
-2. ✅ Run evolution: `python run_fi2pop.py`
-3. ✅ Inspect results in `generated_levels/`
-4. ✅ Visualize levels: `python preview_level.py generated_levels/fi2pop_balanced.txt`
-5. ✅ Test solvability: `python solvability.py generated_levels/fi2pop_balanced.txt`
+1.  Prepare libraries: `python prepare_initial_population.py`
+2.  Run evolution: `python run_fi2pop.py`
+3.  Inspect results in `generated_levels/`
+4.  Visualize levels: `python preview_level.py generated_levels/fi2pop_balanced.txt`
+5.  Test solvability: `python solvability.py generated_levels/fi2pop_balanced.txt`

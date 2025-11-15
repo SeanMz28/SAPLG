@@ -23,7 +23,7 @@ def main():
     print("=" * 70)
     
     # Check level libraries
-    print("\n📁 LEVEL LIBRARIES:")
+    print("\n[DIR] LEVEL LIBRARIES:")
     print("-" * 70)
     
     libraries = {
@@ -38,7 +38,7 @@ def main():
     for dir_name, (pattern, description) in libraries.items():
         count = count_files(dir_name, pattern)
         total_levels += count
-        status = "✅" if count > 0 else "❌"
+        status = "[OK]" if count > 0 else "[FAIL]"
         print(f"{status} {dir_name:25s} {count:4d} files  ({description})")
         if count == 0:
             all_ready = False
@@ -57,7 +57,7 @@ def main():
     
     for filepath, description in configs.items():
         exists = check_file(filepath)
-        status = "✅" if exists else "❌"
+        status = "[OK]" if exists else "[FAIL]"
         print(f"{status} {filepath:35s} ({description})")
         if not exists:
             all_ready = False
@@ -69,12 +69,12 @@ def main():
     gen_dir = Path('generated_levels')
     if gen_dir.exists():
         gen_count = count_files('generated_levels')
-        print(f"✅ generated_levels/              {gen_count} generated levels")
+        print(f"[OK] generated_levels/              {gen_count} generated levels")
     else:
-        print(f"⚠️  generated_levels/              (will be created automatically)")
+        print(f"WARNING:  generated_levels/              (will be created automatically)")
     
     # Check core scripts
-    print("\n🔧 CORE SCRIPTS:")
+    print("\n CORE SCRIPTS:")
     print("-" * 70)
     
     scripts = [
@@ -87,7 +87,7 @@ def main():
     
     for script in scripts:
         exists = check_file(script)
-        status = "✅" if exists else "❌"
+        status = "[OK]" if exists else "[FAIL]"
         print(f"{status} {script}")
         if not exists:
             all_ready = False
@@ -96,7 +96,7 @@ def main():
     print("\n" + "=" * 70)
     
     if all_ready:
-        print("✅ SYSTEM READY!")
+        print("[OK] SYSTEM READY!")
         print("=" * 70)
         print("\nYou can now run FI-2POP:")
         print("  python run_fi2pop.py")
@@ -104,7 +104,7 @@ def main():
         print("  python test_captured_in_fi2pop.py")
         
     else:
-        print("⚠️  SETUP REQUIRED")
+        print("WARNING:  SETUP REQUIRED")
         print("=" * 70)
         
         # Determine what's missing

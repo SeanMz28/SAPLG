@@ -201,22 +201,22 @@ if __name__ == "__main__":
     generator = StyleAwareGenerator().to(device)
     discriminator = LevelDiscriminator().to(device)
     
-    print(f"\n🎮 Generator parameters: {sum(p.numel() for p in generator.parameters()):,}")
-    print(f"🔍 Discriminator parameters: {sum(p.numel() for p in discriminator.parameters()):,}")
+    print(f"\n Generator parameters: {sum(p.numel() for p in generator.parameters()):,}")
+    print(f" Discriminator parameters: {sum(p.numel() for p in discriminator.parameters()):,}")
     
     # Test forward pass
     batch_size = 4
     style_vector = torch.randn(batch_size, 6).to(device)
     
-    print(f"\n📊 Testing forward pass with batch_size={batch_size}")
+    print(f"\n[STATS] Testing forward pass with batch_size={batch_size}")
     
     # Generate fake level
     fake_levels = generator(style_vector)
-    print(f"✅ Generated levels shape: {fake_levels.shape}")  # (4, 5, 32, 32)
+    print(f"[OK] Generated levels shape: {fake_levels.shape}")  # (4, 5, 32, 32)
     
     # Discriminate
     real_fake_scores, style_pred = discriminator(fake_levels)
-    print(f"✅ Real/fake scores shape: {real_fake_scores.shape}")   # (4, 1)
-    print(f"✅ Style predictions shape: {style_pred.shape}")        # (4, 6)
+    print(f"[OK] Real/fake scores shape: {real_fake_scores.shape}")   # (4, 1)
+    print(f"[OK] Style predictions shape: {style_pred.shape}")        # (4, 6)
     
-    print(f"\n✨ Model test completed successfully!")
+    print(f"\n Model test completed successfully!")

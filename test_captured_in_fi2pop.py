@@ -22,13 +22,13 @@ for dir_name, description in required_dirs.items():
     path = Path(dir_name)
     if path.exists():
         count = len(list(path.glob("*.txt")))
-        print(f"✅ {dir_name:20s} - {count} files found")
+        print(f"[OK] {dir_name:20s} - {count} files found")
     else:
-        print(f"❌ {dir_name:20s} - NOT FOUND")
+        print(f"[FAIL] {dir_name:20s} - NOT FOUND")
         missing.append(dir_name)
 
 if missing:
-    print("\n⚠️ Missing directories. Run this first:")
+    print("\nWARNING: Missing directories. Run this first:")
     print("   python prepare_initial_population.py")
     exit(1)
 
@@ -60,7 +60,7 @@ generator = FI2POPGenerator(target_metrics, physics_config, cfg)
 best_level, best_fitness = generator.evolve()
 
 print("\n" + "=" * 60)
-print("✅ TEST SUCCESSFUL!")
+print("[OK] TEST SUCCESSFUL!")
 print("=" * 60)
 print(f"Best fitness achieved: {best_fitness:.4f}")
 print(f"Final population: {len(generator.feasible_pop)} feasible, "
@@ -69,6 +69,6 @@ print(f"Final population: {len(generator.feasible_pop)} feasible, "
 # Save test result
 generator.save_best("test_fi2pop_folder_loading.txt")
 
-print("\n🎉 Folder-based level loading works correctly!")
+print("\n Folder-based level loading works correctly!")
 print("You can now run: python run_fi2pop.py")
 

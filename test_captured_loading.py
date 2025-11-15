@@ -27,25 +27,25 @@ cfg = FI2POPConfig(
 
 # Test loading captured levels
 generator = FI2POPGenerator(target_metrics, physics_config, cfg)
-print("\n🧪 Testing captured level loading...")
+print("\n Testing captured level loading...")
 print(f"Target population size: {cfg.population_size}")
 print(f"Captured levels directory: captured_levels/")
 
 # Initialize with captured levels
 generator.initialize_population(captured_levels_dir='captured_levels')
 
-print(f"\n✅ Results:")
+print(f"\n[OK] Results:")
 print(f"   Feasible population: {len(generator.feasible_pop)} levels")
 print(f"   Infeasible population: {len(generator.infeasible_pop)} levels")
 print(f"   Total: {len(generator.feasible_pop) + len(generator.infeasible_pop)} levels")
 
 # Show some stats about captured levels
 if generator.feasible_pop:
-    print(f"\n📊 Feasible level fitness scores:")
+    print(f"\n[STATS] Feasible level fitness scores:")
     for i, (level, fitness) in enumerate(generator.feasible_pop[:5]):
         print(f"   Level {i+1}: fitness={fitness:.4f}, shape={level.shape}")
 
 if generator.infeasible_pop:
-    print(f"\n📊 Infeasible level fitness scores:")
+    print(f"\n[STATS] Infeasible level fitness scores:")
     for i, (level, fitness) in enumerate(generator.infeasible_pop[:5]):
         print(f"   Level {i+1}: fitness={fitness:.4f}, shape={level.shape}")

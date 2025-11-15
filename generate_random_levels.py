@@ -44,11 +44,11 @@ def generate_and_save_random_levels(
         physics_config = json.load(f)
     tiles = physics_config['tiles']
     
-    print(f"🎲 Generating {num_levels} solvable random levels with variation...")
-    print(f"📁 Output directory: {output_dir}")
-    print(f"⏱️  Solvability timeout: {timeout}s per level")
-    print(f"🔄 Max attempts per level: {max_attempts_per_level}")
-    print(f"🎲 Platform density range: {platform_density_range}")
+    print(f"Generating {num_levels} solvable random levels with variation...")
+    print(f"Output directory: {output_dir}")
+    print(f"Solvability timeout: {timeout}s per level")
+    print(f"Max attempts per level: {max_attempts_per_level}")
+    print(f"Platform density range: {platform_density_range}")
     print("=" * 60)
     
     successful = 0
@@ -104,17 +104,17 @@ def generate_and_save_random_levels(
             # Could not generate solvable level after max_attempts
             failed_solvability += max_attempts_per_level
             total_attempts += max_attempts_per_level
-            pbar.write(f"⚠️ Skipping after {max_attempts_per_level} failed attempts")
+            pbar.write(f"WARNING: Skipping after {max_attempts_per_level} failed attempts")
         except Exception as e:
             failed_generation += 1
-            pbar.write(f"⚠️ Generation error: {e}")
+            pbar.write(f"WARNING: Generation error: {e}")
     
     pbar.close()
     
     print("\n" + "=" * 60)
-    print(f"✅ Successfully generated {successful} solvable random levels")
+    print(f"Successfully generated {successful} solvable random levels")
     if failed_solvability > 0 or failed_generation > 0:
-        print(f"📊 Statistics:")
+        print(f"Statistics:")
         print(f"   Failed attempts:       {failed_solvability + failed_generation}")
         print(f"   Failed solvability:    {failed_solvability}")
         print(f"   Failed generation:     {failed_generation}")

@@ -1,0 +1,65 @@
+{
+  "balanced": {
+    "room_count": 4.0,
+    "branching": 2.1538461538461537,
+    "linearity": 0.27692307692307694,
+    "dead_end_rate": 0.24615384615384617,
+    "loop_complexity": 9.0
+  },
+  "dense_network": {
+    "room_count": 5.0,
+    "branching": 2.253968253968254,
+    "linearity": 0.25396825396825395,
+    "dead_end_rate": 0.20634920634920634,
+    "loop_complexity": 13.0
+  },
+  "high_branching": {
+    "room_count": 2.0,
+    "branching": 2.595744680851064,
+    "linearity": 0.23404255319148937,
+    "dead_end_rate": 0.22340425531914893,
+    "loop_complexity": 30.0
+  },
+  "high_linearity": {
+    "room_count": 4.0,
+    "branching": 2.0357142857142856,
+    "linearity": 0.42857142857142855,
+    "dead_end_rate": 0.17857142857142858,
+    "loop_complexity": 5.0
+  },
+  "maze_complex": {
+    "room_count": 8.0,
+    "branching": 2.111111111111111,
+    "linearity": 0.2111111111111111,
+    "dead_end_rate": 0.26666666666666666,
+    "loop_complexity": 13.0
+  },
+  "minimalist": {
+    "room_count": 1.0,
+    "branching": 2.0,
+    "linearity": 0.75,
+    "dead_end_rate": 0.25,
+    "loop_complexity": 1.0
+  },
+  "open_sparse": {
+    "room_count": 2.0,
+    "branching": 1.6,
+    "linearity": 0.6,
+    "dead_end_rate": 0.0,
+    "loop_complexity": 1.0
+  },
+  "vertical_focused": {
+    "room_count": 3.0,
+    "branching": 2.2,
+    "linearity": 0.24285714285714285,
+    "dead_end_rate": 0.2,
+    "loop_complexity": 10.0
+  },
+  "web_branching": {
+    "room_count": 2.0,
+    "branching": 3.2,
+    "linearity": 0.23333333333333334,
+    "dead_end_rate": 0.06666666666666667,
+    "loop_complexity": 20.0
+  }
+}

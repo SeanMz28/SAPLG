@@ -42,9 +42,9 @@ echo "Verifying pre-generated level libraries..."
 for DIR in captured_levels constructive_levels random_levels; do
     if [ -d "$DIR" ]; then
         COUNT=$(ls -1 "$DIR"/*.txt 2>/dev/null | wc -l)
-        echo "✅ $DIR: $COUNT levels found"
+        echo "[OK] $DIR: $COUNT levels found"
     else
-        echo "❌ $DIR: directory not found!"
+        echo "[FAIL] $DIR: directory not found!"
     fi
 done
 echo ""
@@ -64,12 +64,12 @@ echo "========================================="
 
 if [ -d "generated_levels" ]; then
     GEN_COUNT=$(ls -1 generated_levels/*.txt 2>/dev/null | wc -l)
-    echo "✅ Generated $GEN_COUNT levels in generated_levels/"
+    echo "[OK] Generated $GEN_COUNT levels in generated_levels/"
     echo ""
     echo "Generated files:"
     ls -lh generated_levels/*.txt
 else
-    echo "❌ No generated_levels directory found!"
+    echo "[FAIL] No generated_levels directory found!"
 fi
 
 echo ""

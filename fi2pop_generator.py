@@ -138,7 +138,7 @@ class FI2POPGenerator:
         # If we don't have enough levels, fill with newly generated random ones
         if len(all_levels) < self.cfg.population_size:
             shortage = self.cfg.population_size - len(all_levels)
-            print(f"⚠️ Only loaded {len(all_levels)} levels, generating {shortage} more random levels...")
+            print(f"WARNING: Only loaded {len(all_levels)} levels, generating {shortage} more random levels...")
             for _ in tqdm(range(shortage), desc="Generating additional random levels"):
                 all_levels.append(self._generate_random_level())
         
@@ -148,7 +148,7 @@ class FI2POPGenerator:
         # Limit to population size if we loaded too many
         all_levels = all_levels[:self.cfg.population_size]
         
-        print(f"📊 Total levels loaded: {len(all_levels)}")
+        print(f"[STATS] Total levels loaded: {len(all_levels)}")
         print("Computing fitness for initial population (all pre-verified as solvable)...")
         
         # All pre-generated levels are guaranteed solvable, so skip expensive solvability checks
@@ -163,7 +163,7 @@ class FI2POPGenerator:
                 self.best_fitness = fitness
                 self.best_level = level.copy()
         
-        print(f"✅ Initial population: {len(self.feasible_pop)} feasible levels ready")
+        print(f"[OK] Initial population: {len(self.feasible_pop)} feasible levels ready")
     
     def _load_levels_from_dir(
         self,
@@ -177,21 +177,21 @@ class FI2POPGenerator:
         dir_path = Path(directory)
         
         if not dir_path.exists():
-            print(f"⚠️ Directory not found: {directory}")
+            print(f"WARNING: Directory not found: {directory}")
             return levels
         
         # Find all matching files
         level_files = list(dir_path.glob(pattern))
         
         if not level_files:
-            print(f"⚠️ No {source_name} levels found in {directory}")
+            print(f"WARNING: No {source_name} levels found in {directory}")
             return levels
         
         # Sample if we have too many
         if max_count and len(level_files) > max_count:
             level_files = random.sample(level_files, max_count)
         
-        print(f"📁 Loading {len(level_files)} {source_name} levels from {directory}/")
+        print(f"[DIR] Loading {len(level_files)} {source_name} levels from {directory}/")
         
         # Load each file
         for level_file in level_files:
@@ -199,7 +199,7 @@ class FI2POPGenerator:
                 level = self._load_level_from_file(str(level_file))
                 levels.append(level)
             except Exception as e:
-                print(f"⚠️ Could not load {level_file.name}: {e}")
+                print(f"WARNING: Could not load {level_file.name}: {e}")
         
         return levels
     
@@ -410,10 +410,27 @@ class FI2POPGenerator:
         
         print(f"\n🧬 Starting FI-2POP evolution for {self.cfg.max_generations} generations...")
         
+        # Track stagnation for adaptive mutation
+        last_best_fitness = -float('inf')
+        stagnation_counter = 0
+        
         for gen in range(self.cfg.max_generations):
             # Sort populations by fitness
             self.feasible_pop.sort(key=lambda x: x[1], reverse=True)
             self.infeasible_pop.sort(key=lambda x: x[1], reverse=True)
+            
+            # Adaptive mutation: increase if stuck
+            current_best = self.feasible_pop[0][1] if self.feasible_pop else 0
+            if abs(current_best - last_best_fitness) < 0.001:
+                stagnation_counter += 1
+                # Temporarily boost mutation
+                if stagnation_counter > 3:
+                    old_mutation = self.cfg.mutation_rate
+                    self.cfg.mutation_rate = min(0.3, old_mutation * 1.5)
+            else:
+                stagnation_counter = 0
+                # Reset to normal
+            last_best_fitness = current_best
             
             # Generate offspring
             offspring = []
@@ -446,6 +463,12 @@ class FI2POPGenerator:
                         child = self._mutate(child)
                     offspring.append(child)
                 else:
+                    offspring.append(self._generate_random_level())
+            
+            # DIVERSITY INJECTION: Add fresh random levels every 5 generations
+            if (gen + 1) % 5 == 0:
+                num_fresh = self.cfg.population_size // 10  # 10% fresh blood
+                for _ in range(num_fresh):
                     offspring.append(self._generate_random_level())
             
             # Evaluate offspring
@@ -509,7 +532,7 @@ class FI2POPGenerator:
         """Save the best level to file."""
         best = self.get_best_level()
         if best is None:
-            print("⚠️ No feasible level found!")
+            print("WARNING: No feasible level found!")
             return
         
         with open(output_path, 'w') as f:
@@ -524,13 +547,13 @@ class FI2POPGenerator:
             G, id2seg = build_segment_graph(best_rows, self.physics)
             metrics = structural_metrics(G, id2seg)
             
-            print("\n📊 Best Level Metrics:")
+            print("\n[STATS] Best Level Metrics:")
             for key in ['branching', 'linearity', 'dead_end_rate', 'loop_complexity', 'room_count']:
                 target_val = self.target.get(key, 'N/A')
                 actual_val = metrics.get(key, 'N/A')
                 print(f"  {key:20s}: target={target_val:6.3f}  actual={actual_val:6.3f}")
         except Exception as e:
-            print(f"⚠️ Could not extract metrics: {e}")
+            print(f"WARNING: Could not extract metrics: {e}")
 
 
 def main():
@@ -573,7 +596,7 @@ def main():
     # Save result
     generator.save_best(args.output)
     
-    print(f"\n✅ Evolution complete! Best fitness: {best_fitness:.4f}")
+    print(f"\n[OK] Evolution complete! Best fitness: {best_fitness:.4f}")
 
 
 if __name__ == "__main__":
