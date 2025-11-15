@@ -1,9 +1,14 @@
 """
 Generate 100 constructive levels with variation in step length and step overlap.
 """
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import os
 import random
-from constructive import generate
+from src.generators.constructive import generate
 
 def main():
     # Configuration

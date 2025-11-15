@@ -16,7 +16,7 @@ import argparse
 import json
 import os
 from typing import Dict, List, Tuple, Optional, Set, Callable
-import pathfinding
+from src.core import pathfinding
 
 
 # ---------------------------

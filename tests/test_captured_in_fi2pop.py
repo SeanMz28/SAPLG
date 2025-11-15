@@ -3,9 +3,13 @@ Test script to verify the new folder-based level loading works.
 This is a quick test before running full FI-2POP evolution.
 """
 
-import json
+import sys
 from pathlib import Path
-from fi2pop_generator import FI2POPGenerator, FI2POPConfig
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+import json
+from src.generators.fi2pop_generator import FI2POPGenerator, FI2POPConfig
 
 # Check prerequisites
 print("Checking prerequisites...")

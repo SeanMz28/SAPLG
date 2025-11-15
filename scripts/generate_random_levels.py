@@ -5,12 +5,16 @@ Only saves levels that pass solvability checking.
 Adds variation through randomized platform density.
 """
 
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import json
 import random
 import numpy as np
-from pathlib import Path
 from tqdm import tqdm
-from random_baseline import generate_until_solvable, GenConfig, grid_to_lines
+from src.generators.random_baseline import generate_until_solvable, GenConfig, grid_to_lines
 
 def generate_and_save_random_levels(
     output_dir: str = "random_levels",

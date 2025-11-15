@@ -5,7 +5,7 @@ import numpy as np
 
 # Optional: A* for solvability check (only used when --check is passed)
 try:
-    from solvability import is_level_solvable
+    from src.core.solvability import is_level_solvable
 except Exception:
     is_level_solvable = None
 

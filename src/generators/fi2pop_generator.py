@@ -18,10 +18,10 @@ from dataclasses import dataclass
 from tqdm import tqdm
 
 # Your existing modules
-from structural_features import Physics, build_segment_graph, structural_metrics
-from solvability import is_level_solvable
-from constructive import generate as generate_constructive
-from random_baseline import generate_random_level, GenConfig, grid_to_lines
+from src.core.structural_features import Physics, build_segment_graph, structural_metrics
+from src.core.solvability import is_level_solvable
+from src.generators.constructive import generate as generate_constructive
+from src.generators.random_baseline import generate_random_level, GenConfig, grid_to_lines
 
 
 @dataclass

@@ -8,18 +8,22 @@ This script implements:
 3. Checkpoint saving and visualization
 """
 
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import json
-from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import argparse
 
-from generator import StyleAwareGenerator, LevelDiscriminator
+from src.generators.generator import StyleAwareGenerator, LevelDiscriminator
 
 
 class SpelunkyDataset(Dataset):

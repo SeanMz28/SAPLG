@@ -4,8 +4,13 @@ Generates random and constructive levels with solvability verification.
 Constructive levels include variation in step parameters for diversity.
 """
 
-from generate_random_levels import generate_and_save_random_levels
-from generate_constructive_levels import generate_and_save_constructive_levels
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from scripts.generate_random_levels import generate_and_save_random_levels
+from scripts.generate_constructive_levels import generate_and_save_constructive_levels
 
 def prepare_all_levels(
     num_random: int = 100,

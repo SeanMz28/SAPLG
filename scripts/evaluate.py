@@ -3,10 +3,14 @@
 Evaluate generated levels using structural metrics.
 """
 
-import json
+import sys
 from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+import json
 import numpy as np
-from structural_features import Physics, build_segment_graph, structural_metrics
+from src.core.structural_features import Physics, build_segment_graph, structural_metrics
 
 def evaluate_generated_levels(generated_dir, config_file='configs/spelunky.json'):
     """

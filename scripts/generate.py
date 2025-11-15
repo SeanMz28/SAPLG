@@ -1,11 +1,14 @@
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import torch
 import numpy as np
-from pathlib import Path
 import argparse
 import json
 
-from generator import StyleAwareGenerator
+from src.generators.generator import StyleAwareGenerator
 
 
 def generate_levels(

@@ -1,7 +1,12 @@
 # test_level.py
 # (Drop-in updated to support explicit Start and Goal)
 
-import pathfinding
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from src.core import pathfinding
 
 def makeIsSolid(solids):
     def isSolid(tile):
