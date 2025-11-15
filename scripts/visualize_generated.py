@@ -4,11 +4,15 @@ Visualize generated levels for research paper.
 Creates individual level visualizations and combined figures.
 """
 
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import matplotlib.pyplot as plt
 import numpy as np
-from pathlib import Path
 import json
-from structural_features import Physics, build_segment_graph, structural_metrics
+from src.core.structural_features import Physics, build_segment_graph, structural_metrics
 
 def visualize_all_generated(generated_dir='generated_levels', output_dir='research_paper/figures'):
     """Create publication-quality visualizations of all generated levels."""

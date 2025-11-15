@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Test neighbor generation for the start position"""
 
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import json
-from solvability import is_level_solvable, load_config, make_is_solid, make_get_neighbors_spelunky
+from src.core.solvability import is_level_solvable, load_config, make_is_solid, make_get_neighbors_spelunky
 
 # Load level
 with open("captured_levels/level_20251023_071250.txt", "r") as f:

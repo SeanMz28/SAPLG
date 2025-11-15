@@ -5,7 +5,13 @@ import numpy as np
 
 # Optional: A* for solvability check (only used when --check is passed)
 try:
-    from solvability import is_level_solvable
+    from src.core.solvability import is_level_solvable
+except ImportError:
+    try:
+        # When run as a script from within src/generators/
+        from ..core.solvability import is_level_solvable
+    except (ImportError, ValueError):
+        is_level_solvable = None
 except Exception:
     is_level_solvable = None
 

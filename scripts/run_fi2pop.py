@@ -11,9 +11,13 @@ This will create:
   - captured_levels/     (already exists with Spelunky levels)
 """
 
-import json
+import sys
 from pathlib import Path
-from fi2pop_generator import FI2POPGenerator, FI2POPConfig
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+import json
+from src.generators.fi2pop_generator import FI2POPGenerator, FI2POPConfig
 
 # Check if level libraries exist
 required_dirs = ['captured_levels', 'constructive_levels', 'random_levels']

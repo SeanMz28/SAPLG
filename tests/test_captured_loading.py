@@ -1,8 +1,13 @@
 """
 Quick test to verify captured levels can be loaded into FI-2POP
 """
+import sys
+from pathlib import Path
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import json
-from fi2pop_generator import FI2POPGenerator, FI2POPConfig
+from src.generators.fi2pop_generator import FI2POPGenerator, FI2POPConfig
 
 # Load config
 with open('configs/spelunky.json', 'r') as f:
