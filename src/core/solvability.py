@@ -16,7 +16,13 @@ import argparse
 import json
 import os
 from typing import Dict, List, Tuple, Optional, Set, Callable
-from src.core import pathfinding
+
+# Support both running as script and as module
+try:
+    from src.core import pathfinding
+except ImportError:
+    # When run as a script from within src/core/
+    import pathfinding
 
 
 # ---------------------------
