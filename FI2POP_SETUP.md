@@ -80,14 +80,6 @@ SAPLG/
 └── fi2pop_generator.py             # FI-2POP implementation
 ```
 
-## Workflow Benefits
-
- **Fast iterations** - Pre-generate once, reuse many times  
- **Reproducibility** - Same starting population across runs  
- **Debugging** - Can inspect initial population levels  
- **Flexibility** - Generate large libraries offline, sample during evolution  
-
-## Advanced Usage
 
 ### Custom Target Metrics
 
@@ -132,33 +124,3 @@ generator.initialize_population(
     random_dir=None  # Skip random levels
 )
 ```
-
-## Troubleshooting
-
-**Missing level libraries error:**
-```
-Run: python prepare_initial_population.py
-```
-
-**Not enough levels loaded:**
-- Check that directories exist and contain .txt files
-- Generator will auto-generate random levels to fill shortage
-
-**Constructive generation fails:**
-- Ensure `configs/spelunky.json` exists
-- Check that constructive.py is working: `python constructive.py test_out.txt`
-
-## Performance Tips
-
-- Pre-generate larger libraries (200-500 levels each) for better diversity
-- Use smaller population size (20-30) for quick testing
-- Increase generations (200-500) for better convergence to target metrics
-- Monitor feasible population count - should stay above 10-20
-
-## Next Steps
-
-1.  Prepare libraries: `python prepare_initial_population.py`
-2.  Run evolution: `python run_fi2pop.py`
-3.  Inspect results in `generated_levels/`
-4.  Visualize levels: `python preview_level.py generated_levels/fi2pop_balanced.txt`
-5.  Test solvability: `python solvability.py generated_levels/fi2pop_balanced.txt`
