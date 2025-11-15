@@ -117,13 +117,12 @@ Successfully generated 9 distinct style profiles using FI-2POP evolutionary algo
 ## Key Insights
 
 1. **FI-2POP is highly effective** for style-aware level generation, achieving 93%+ mean fitness
-2. **Perfect metric matching is achievable** for profiles with compatible constraints (Balanced, High Linearity)
-3. **Solvability constraint dominates** over soft style objectives (correct behavior)
+2. **Perfect metric matching is achievable** for profiles with compatible constr3. **Solvability constraint dominates** over soft style objectives (correct behavior)
 4. **Conflicting objectives are challenging** (disconnection vs connectivity in Maze Complex)
 5. **Pre-validated libraries accelerate convergence** by eliminating initialization overhead
 6. **Adaptive mechanisms are essential** for complex landscapes (mutation adaptation, diversity injection)
 7. **Linear structures easier to evolve** than highly branching/complex layouts
-8. **Generation time correlates with constraint complexity**, not just metric count
+8. **Generation time correlates with constraint complexity**, not just metric countaints (Balanced, High Linearity)
 
 ## Visualizations Generated
 
@@ -131,17 +130,3 @@ All visualizations saved to `research_paper/figures/`:
 1. Individual level images (9 files): `fi2pop_*.png`
 2. Combined 3×3 grid: `all_profiles_grid.png`
 3. Metrics data: `generated_levels/generated_metrics.json`
-
-## Next Steps for Paper
-
-1. Results section written with Tables I and II
-2. Discussion section (interpret findings, limitations, design implications)
-3. Include figure showing selected generated levels (recommend 3×3 grid)
-4. Conclusion section
-5. Compile and verify all citations
-
-## Files Updated
-
-- `conference_101719.tex`: Added complete Results section (Section IV)
-- `visualize_generated.py`: Enhanced to generate publication-quality figures
-- `generated_levels/generated_metrics.json`: Extracted metrics for all 9 profiles
